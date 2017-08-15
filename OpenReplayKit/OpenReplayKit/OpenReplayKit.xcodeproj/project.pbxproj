@@ -45,7 +45,7 @@
 		AED922891F3AF7A500F161FB /* OpenReplayKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenReplayKit.h; sourceTree = "<group>"; };
 		AED9228C1F3AF81300F161FB /* ORKScreenCapturer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ORKScreenCapturer.h; sourceTree = "<group>"; };
 		AED9228D1F3AF81300F161FB /* ORKVideoRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ORKVideoRecorder.h; sourceTree = "<group>"; };
-		AED9228E1F3AF81300F161FB /* ORKVideoRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ORKVideoRecorder.m; sourceTree = "<group>"; };
+		AED9228E1F3AF81300F161FB /* ORKVideoRecorder.m */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.c.objc; path = ORKVideoRecorder.m; sourceTree = "<group>"; };
 		AED9228F1F3AF81300F161FB /* ORKAudioRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ORKAudioRecorder.h; sourceTree = "<group>"; };
 		AED922901F3AF81300F161FB /* ORKScreenCapturer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ORKScreenCapturer.m; sourceTree = "<group>"; };
 		AED922911F3AF81300F161FB /* ORKAudioRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ORKAudioRecorder.m; sourceTree = "<group>"; };

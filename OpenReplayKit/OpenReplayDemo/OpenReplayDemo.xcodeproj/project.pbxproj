@@ -42,6 +42,16 @@
 		AE468EE41F3D5D1C00DEA242 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		AE468EE61F3D5D3200DEA242 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		AEB555601F3991DF00040E45 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		AEDA7FF41F42990E0023E882 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ShareREC.strings"; sourceTree = "<group>"; };
+		AEDA7FF61F42990E0023E882 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/ShareRECSocial.strings"; sourceTree = "<group>"; };
+		AEDA7FF71F42990E0023E882 /* ShareREC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareREC.framework; sourceTree = "<group>"; };
+		AEDA7FF81F42990E0023E882 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ShareREC.strings; sourceTree = "<group>"; };
+		AEDA7FF91F42990E0023E882 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ShareRECSocial.strings; sourceTree = "<group>"; };
+		AEDA7FFA1F42990E0023E882 /* ShareRECSocial.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareRECSocial.bundle; sourceTree = "<group>"; };
+		AEDA7FFB1F42990E0023E882 /* ShareREC.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareREC.bundle; sourceTree = "<group>"; };
+		AEDA7FFC1F42990E0023E882 /* MOBFoundationEx.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundationEx.framework; sourceTree = "<group>"; };
+		AEDA7FFD1F42990E0023E882 /* ShareRECSocial.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareRECSocial.framework; sourceTree = "<group>"; };
+		AEDA7FFF1F42990E0023E882 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +76,7 @@
 		AE2360DC1F2F04DE006EE04F = {
 			isa = PBXGroup;
 			children = (
+				AEDA7FF11F42990E0023E882 /* SDK */,
 				AE27839E1F38081F003574F5 /* SDKImport */,
 				AE2360E71F2F04DE006EE04F /* OpenReplayDemo */,
 				AE2360E61F2F04DE006EE04F /* Products */,
@@ -120,6 +131,38 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AEDA7FF11F42990E0023E882 /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				AEDA7FF21F42990E0023E882 /* ShareREC */,
+				AEDA7FFE1F42990E0023E882 /* Required */,
+			);
+			name = SDK;
+			path = ../../../../../Downloads/v2.0.0/SDK;
+			sourceTree = "<group>";
+		};
+		AEDA7FF21F42990E0023E882 /* ShareREC */ = {
+			isa = PBXGroup;
+			children = (
+				AEDA7FF31F42990E0023E882 /* ShareREC.strings */,
+				AEDA7FF51F42990E0023E882 /* ShareRECSocial.strings */,
+				AEDA7FF71F42990E0023E882 /* ShareREC.framework */,
+				AEDA7FFA1F42990E0023E882 /* ShareRECSocial.bundle */,
+				AEDA7FFB1F42990E0023E882 /* ShareREC.bundle */,
+				AEDA7FFC1F42990E0023E882 /* MOBFoundationEx.framework */,
+				AEDA7FFD1F42990E0023E882 /* ShareRECSocial.framework */,
+			);
+			path = ShareREC;
+			sourceTree = "<group>";
+		};
+		AEDA7FFE1F42990E0023E882 /* Required */ = {
+			isa = PBXGroup;
+			children = (
+				AEDA7FFF1F42990E0023E882 /* MOBFoundation.framework */,
+			);
+			path = Required;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -162,6 +205,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = AE2360DC1F2F04DE006EE04F;
 			productRefGroup = AE2360E61F2F04DE006EE04F /* Products */;
@@ -214,6 +258,24 @@
 				AE2360F41F2F04DE006EE04F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		AEDA7FF31F42990E0023E882 /* ShareREC.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AEDA7FF41F42990E0023E882 /* zh-Hans */,
+				AEDA7FF81F42990E0023E882 /* en */,
+			);
+			name = ShareREC.strings;
+			sourceTree = "<group>";
+		};
+		AEDA7FF51F42990E0023E882 /* ShareRECSocial.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AEDA7FF61F42990E0023E882 /* zh-Hans */,
+				AEDA7FF91F42990E0023E882 /* en */,
+			);
+			name = ShareRECSocial.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -55,11 +55,6 @@ static ORKScreenRecorder *recorder = nil;
     
     [ORKMediaPath removeMainSavePath];
     
-    if (self.microphoneEnabled)
-    {
-        [ORKAudioRecorder.sharedRecorder startRecording];
-    }
-    
     [ORKVideoRecorder.sharedRecorder startRecordingWithHandler:^(NSError *error)
      {
          if (handler)
@@ -67,6 +62,11 @@ static ORKScreenRecorder *recorder = nil;
          
          self.recording = NO;
      }];
+    
+    if (self.microphoneEnabled)
+    {
+        [ORKAudioRecorder.sharedRecorder startRecording];
+    }
 }
 
 - (void)stopRecordingWithHandler:(void (^)(ORKPreviewViewController *, NSError *))handler

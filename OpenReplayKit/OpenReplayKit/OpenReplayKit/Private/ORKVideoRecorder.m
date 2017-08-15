@@ -27,6 +27,8 @@
 
 @property (nonatomic, assign) NSInteger screensCount;
 
+@property (nonatomic, strong) NSThread *recordThread;
+
 @end
 
 @implementation ORKVideoRecorder
@@ -63,34 +65,48 @@ static ORKVideoRecorder *recorder = nil;
     }
     
     // 开始截屏
-    [self startCaptureScreen];
+   [self startCaptureScreen];
 }
 
 - (void)startCaptureScreen
 {
-    self.videoTimer = [NSTimer scheduledTimerWithTimeInterval:1 / ORKFRAMERATE
-                                                       target:self
-                                                     selector:@selector(captureScreen)
-                                                     userInfo:nil
-                                                      repeats:YES];
-    
-    [NSRunLoop.currentRunLoop addTimer:self.videoTimer forMode:NSDefaultRunLoopMode];
+   dispatch_queue_t recordQueue = dispatch_queue_create("ORKScreenRecordQueue", 0);
+   
+   dispatch_async(recordQueue, ^
+   {
+      [self captureScreen];
+      
+      [NSRunLoop.currentRunLoop addPort:NSMachPort.port forMode:NSRunLoopCommonModes];
+      
+      self.videoTimer = [NSTimer scheduledTimerWithTimeInterval:1 / ORKFRAMERATE
+                                                         target:self
+                                                       selector:@selector(captureScreen)
+                                                       userInfo:nil
+                                                        repeats:YES];
+      
+      [NSRunLoop.currentRunLoop run];
+   });
 }
 
 - (void)captureScreen
 {
-    self.screensCount++;
-    
-    UIImage *screen = ORKScreenCapturer.currentScreen;
-    
-    if (self.screensCount == 1)
-    {
-        [self saveImage:screen];
-    }
-    
-    [ORKMediaManager.sharedManager appendScreens:screen
-                                       timeValue:self.screensCount
-                                         handler:self.startHandler];
+   dispatch_async(dispatch_get_main_queue(), ^
+   {
+      self.screensCount++;
+      
+      NSLog(@"frame : %ld", (long)self.screensCount);
+      
+      UIImage *screen = ORKScreenCapturer.currentScreen;
+      
+      if (self.screensCount == 1)
+      {
+         [self saveImage:screen];
+      }
+      
+      [ORKMediaManager.sharedManager appendScreens:screen
+                                         timeValue:self.screensCount
+                                           handler:self.startHandler];
+   });
 }
 
 - (void)saveImage:(UIImage *)image
@@ -132,7 +148,9 @@ static ORKVideoRecorder *recorder = nil;
 
 - (void)stopCaptureScreen
 {
-    [self.videoTimer invalidate];
+   [self.videoTimer invalidate];
+   
+   self.videoTimer = nil;
 }
 
 @end
